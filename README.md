@@ -19,5 +19,5 @@ _Programa GestioTeatreUlldecona: Implementa una aplicación para la gestión del
 
 * **Módulo** - M03 Programación básica
 * **Ciclo** - ASIX-DAW 1B
-* **Inicio del proyecto** - Enero 2021
+* **Inicio del proyecto** - Marzo 2021
 
