@@ -3,7 +3,7 @@ package pkgGestioTeatreUlldecona;
 /**
  * Cas_5 M03 Programa GestioTeatreUlldecona: Programa inicial del proyecto del
  * mismo nombre. Implementa una aplicación para la gestión del teatro (obras,
- * público, patio de butacas). Llama a las clases Clients.java, Teatre.java,
+ * público, patio de butacas). Llama a las clases Client.java, Teatre.java,
  * Obra.java y Seient.java
  * 
  * @author Daniela Gallardo Reyes

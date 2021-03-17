@@ -1,7 +1,7 @@
 package pkgTeatregrama;
 
 /**
- * Cas_5 M03 Clase Clients: clase del proyecto GestioTeatreUlldecona. Conforma
+ * Cas_5 M03 Clase Client: clase del proyecto GestioTeatreUlldecona. Conforma
  * el paquete pkgTeatregrama. Contiene atributos y métodos para la gestión de
  * los clientes del teatro. Sus atributos y métodos se utilizan en el programa
  * inicial GestioTeatreUlldecona.java
@@ -12,11 +12,11 @@ package pkgTeatregrama;
  */
 
 //Creamos una clase public para los clientes
-public class Clients {
-	// Creamos los atributos para los clientes
-	String nom;// nombre del cliente
-	int edat;// edad del cliente
-	int diners;// cantidad de dinero del cliente
+public class Client {
+	// Estructura de la clase: Creamos los atributos para cada cliente
+	private String nom;// nombre del cliente
+	private int edat;// edad del cliente
+	private double diners;// cantidad de dinero del cliente
 
 	// ------------------------------------------------------------------------//
 	// -------------------------------- Métodos -------------------------------//
@@ -76,10 +76,24 @@ public class Clients {
 	}
 
 	// ------------------------------------------------------------------------//
-	// ---------------------------- Constructores -----------------------------//
+	// --------------------------- Constructor/es -----------------------------//
 	// ------------------------------------------------------------------------//
 	
+	//constructor que acepta 3 argumentos (nom, edat i diners)
+	public Client (String nom, int edat, double diners) {
+		
+	}
 	
+	//constructor que acepta 2 argumentos (edat i diners), el nom lo pondremos como «anonim».
+	public Client(int edat, double diners) {
+		
+	}
+	
+	
+	// constructor que acepta 1 argumento (diners), el nombre lo pondremos como  «anonim» y edat 99
+	public Client(double diners) {
+		
+	}
 
 	/**
 	 * main sólo para pruebas debe ser borrado en su versión final
@@ -91,4 +105,4 @@ public class Clients {
 
 	}// fin main
 
-}// fin public class Clients
+}// fin public class Client
