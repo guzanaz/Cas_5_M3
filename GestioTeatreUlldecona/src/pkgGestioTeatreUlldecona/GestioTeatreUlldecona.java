@@ -1,3 +1,4 @@
+package pkgGestioTeatreUlldecona;
 
 /**
  * Cas_5 M03 Programa GestioTeatreUlldecona: Programa inicial del proyecto del
