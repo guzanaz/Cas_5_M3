@@ -22,7 +22,6 @@ public class Client {
 	// -------------------------------- Métodos -------------------------------//
 	// ------------------------------------------------------------------------//
 	
-	
 	/**
 	 * @return the nom
 	 */
@@ -65,9 +64,6 @@ public class Client {
 		this.diners = diners;
 	}
 	
-	
-	
-	
 	/**
 	 * Método TeDiners. Mira si el cliente tiene suficiente dinero para pagar la
 	 * entrada al teatro. Utiliza el paso de valores por referencia diners=liquidez.
@@ -86,8 +82,7 @@ public class Client {
 	 * Utiliza el paso de valores por referencia diners=liquidez.
 	 * 
 	 * @param variable tipo int liquidez (cantidad total de dinero del cliente)
-	 * @return variable tipo int del dinero que le queda al clinte después de pagar
-	 *         la entrada.
+	 * @return cant. dinero que le queda al cliente después de pagar entrada.
 	 */
 //	public int pagarEntrada(int liquidez) {
 //		int cambio;
@@ -109,13 +104,11 @@ public class Client {
 //		return resultado;
 //	}
 
-
-
 	/**
 	 * Método toString. 
 	 * Devuelve los atributos del cliente en forma de frase.
 	 * 
-	 * @param variables(info del cliente).
+	 * @param atributos Client.
 	 * @return Cadena de caracteres con los datos del cliente.
 	 */
 	
@@ -141,7 +134,7 @@ public class Client {
 	
 	
 	// constructor que acepta 1 argumento (diners), el nombre lo pondremos como  «anonim» y edat 99
-	public Client(double diners) {
+	public Client(double diners){
 		
 	}
 
@@ -151,13 +144,13 @@ public class Client {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// Prueba crear objetos cliente
-				Client client1 = new Client("Daniela",30,500);
-				Client client2 = new Client("Gabriela",28,1000);
-				
-				System.out.println(client1.toString());
-				System.out.println(client2.toString());
+		Client client1 = new Client("Daniela",30,500);
+		Client client2 = new Client("Gabriela",28,1000);
+		
+		
+		System.out.println(client1.toString());
+		System.out.println(client2.toString());
 	}// fin main
 
 
