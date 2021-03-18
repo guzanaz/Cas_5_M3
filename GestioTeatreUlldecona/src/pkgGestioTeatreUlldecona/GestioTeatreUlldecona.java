@@ -1,5 +1,5 @@
 package pkgGestioTeatreUlldecona;
-
+import pkgTeatregrama.Client;
 /**
  * Cas_5 M03 Programa GestioTeatreUlldecona: Programa inicial del proyecto del
  * mismo nombre. Implementa una aplicación para la gestión del teatro (obras,
@@ -12,10 +12,15 @@ package pkgGestioTeatreUlldecona;
  */
 
 public class GestioTeatreUlldecona {
-
+	//método main
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Prueba crear objetos cliente
+		Client client1 = new Client("Daniela",30,500);
+		Client client2 = new Client("Gabriela",28,1000);
+		
+		System.out.println(client1.getNom());
+		System.out.println(client2.toString());
+	}//fin método main
 
-	}
 
-}
+}//fin clase GestioTeatreUlldecona
