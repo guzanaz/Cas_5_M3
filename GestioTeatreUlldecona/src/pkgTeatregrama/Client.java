@@ -71,11 +71,11 @@ public class Client {
 	 * @param variable tipo int liquidez (cantidad total de dinero del cliente)
 	 * @return true or false
 	 */
-//	public boolean teDiners(int liquidez) {
-//		boolean resultado;
-//
-//		return resultado;
-//	}
+	public boolean teDiners(int liquidez) {
+		boolean resultado;
+
+		return resultado;
+	}
 
 	/**
 	 * Método pagarEntrada. Resta el dinero de la entrada al dinero del cliente.
@@ -84,11 +84,11 @@ public class Client {
 	 * @param variable tipo int liquidez (cantidad total de dinero del cliente)
 	 * @return cant. dinero que le queda al cliente después de pagar entrada.
 	 */
-//	public int pagarEntrada(int liquidez) {
-//		int cambio;
-//
-//		return cambio;
-//	}
+	public int pagarEntrada(int liquidez) {
+		int cambio;
+
+		return cambio;
+	}
 
 	/**
 	 * Método majorEdat. Mira si el cliente es mayor de edad o no. Utiliza el paso
@@ -98,11 +98,11 @@ public class Client {
 	 * @return variable tipo boolean que confirma si el cliente es mayor de edad o
 	 *         no.
 	 */
-//	public boolean mayorEdat(int mayor) {
-//		boolean resultado;
-//
-//		return resultado;
-//	}
+	public boolean mayorEdat(int mayor) {
+		boolean resultado;
+
+		return resultado;
+	}
 
 	/**
 	 * Método toString. 
@@ -147,7 +147,6 @@ public class Client {
 		// Prueba crear objetos cliente
 		Client client1 = new Client("Daniela",30,500);
 		Client client2 = new Client("Gabriela",28,1000);
-		
 		
 		System.out.println(client1.toString());
 		System.out.println(client2.toString());
