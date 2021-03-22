@@ -66,12 +66,12 @@ public class Client {
 	}
 	
 	/**
-	 * Método TeDiners. Mira si el cliente tiene suficiente dinero para pagar la
+	 * Método teDiners. Mira si el cliente tiene suficiente dinero para pagar la
 	 * entrada al teatro. Utiliza el paso de valores por valor.
-	 * @param nada
+	 * @param double diners
 	 * @return true or false
 	 */
-	public boolean teDiners() {
+	public boolean teDiners(double diners){
 		boolean resultado;
 
 		return resultado;
@@ -96,7 +96,6 @@ public class Client {
 	 * @return true or false.
 	 */
 	public boolean mayorEdat(){
-		this.edat=edat;
 		boolean resultado;
 		if (edat>=18) {
 			resultado=true;
@@ -149,7 +148,9 @@ public class Client {
 		Client client1 = new Client("Daniela",30,500.00);
 		Client client2 = new Client("Gabriela",28,1000.00);
 		
-		System.out.println(client1.pagarEntrada(client1.getDiners()));
+		client1.pagarEntrada();
+		
+		System.out.println("después de pagar la entrada "+client1.getNom()+" tiene "+client1.getDiners()+"€");
 		System.out.println(client2.toString());
 	}// fin main
 
