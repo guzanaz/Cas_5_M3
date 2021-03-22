@@ -16,7 +16,8 @@ public class Client {
 	// Estructura de la clase: Creamos los atributos para cada cliente
 	private String nom;// nombre del cliente
 	private int edat;// edad del cliente
-	private double diners;// cantidad de dinero del cliente
+	private  double diners;// cantidad de dinero del cliente
+	private double valorEntrada=20.00;//valor entrada
 
 	// ------------------------------------------------------------------------//
 	// -------------------------------- Métodos -------------------------------//
@@ -66,12 +67,11 @@ public class Client {
 	
 	/**
 	 * Método TeDiners. Mira si el cliente tiene suficiente dinero para pagar la
-	 * entrada al teatro. Utiliza el paso de valores por referencia diners=liquidez.
-	 * 
-	 * @param variable tipo int liquidez (cantidad total de dinero del cliente)
+	 * entrada al teatro. Utiliza el paso de valores por valor.
+	 * @param nada
 	 * @return true or false
 	 */
-	public boolean teDiners(int liquidez) {
+	public boolean teDiners() {
 		boolean resultado;
 
 		return resultado;
@@ -79,35 +79,36 @@ public class Client {
 
 	/**
 	 * Método pagarEntrada. Resta el dinero de la entrada al dinero del cliente.
-	 * Utiliza el paso de valores por referencia diners=liquidez.
-	 * 
-	 * @param variable tipo int liquidez (cantidad total de dinero del cliente)
-	 * @return cant. dinero que le queda al cliente después de pagar entrada.
+	 * Utiliza el paso de valores por valor y actualiza el atributo diners.
+	 * @param nada
+	 * @return cambio después de pagar entrada.
 	 */
-	public int pagarEntrada(int liquidez) {
-		int cambio;
-
-		return cambio;
+	public double pagarEntrada(double valorEntrada) {
+		double cambio;
+		cambio=diners-valorEntrada;
+		diners=cambio;
+		return diners;
 	}
 
 	/**
-	 * Método majorEdat. Mira si el cliente es mayor de edad o no. Utiliza el paso
-	 * de valor por referencia edat=mayor.
-	 * 
-	 * @param variable tipo int mayor (edad del cliente).
-	 * @return variable tipo boolean que confirma si el cliente es mayor de edad o
-	 *         no.
+	 * Método majorEdat. Mira si el cliente es mayor de edad o no.
+	 * @param nada.
+	 * @return true or false.
 	 */
-	public boolean mayorEdat(int mayor) {
+	public boolean mayorEdat(){
+		this.edat=edat;
 		boolean resultado;
-
+		if (edat>=18) {
+			resultado=true;
+		} else {
+			resultado=false;
+		}	
 		return resultado;
 	}
 
 	/**
 	 * Método toString. 
 	 * Devuelve los atributos del cliente en forma de frase.
-	 * 
 	 * @param atributos Client.
 	 * @return Cadena de caracteres con los datos del cliente.
 	 */
@@ -145,13 +146,11 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		// Prueba crear objetos cliente
-		Client client1 = new Client("Daniela",30,500);
-		Client client2 = new Client("Gabriela",28,1000);
+		Client client1 = new Client("Daniela",30,500.00);
+		Client client2 = new Client("Gabriela",28,1000.00);
 		
-		System.out.println(client1.toString());
+		System.out.println(client1.pagarEntrada(client1.getDiners()));
 		System.out.println(client2.toString());
 	}// fin main
-
-
 
 }// fin public class Client
