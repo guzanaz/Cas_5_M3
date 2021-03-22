@@ -12,6 +12,14 @@ package pkgTeatregrama;
  */
 
 public class Teatre {
+	// Estructura de la clase: Creamos los atributos para cada teatro
+	private String obra;//nom de la obra
+	private double preu;//valor de la entrada
+	
+	
+	
+	
+	
 	/**
 	 * main sólo para pruebas debe ser borrado en su versión final
 	 * @param args

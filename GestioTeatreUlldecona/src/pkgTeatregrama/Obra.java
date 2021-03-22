@@ -1,5 +1,6 @@
 package pkgTeatregrama;
 
+
 /**
  * Cas_5 M03 Clase Obra: clase del proyecto GestioTeatreUlldecona. Conforma
  * el paquete pkgTeatregrama. Contiene atributos y métodos para la gestión de
@@ -19,7 +20,7 @@ public class Obra {
 	 *  i si és per a majors d’edat. 
 	 */
 	private String titol;
-	private double durada;
+	private int durada;
 	private String autor;
 	private boolean EsParaMajorsdEdat;
 	
@@ -65,7 +66,7 @@ public class Obra {
 	/**
 	 * @param durada the durada to set
 	 */
-	public void setDurada(double durada) {
+	public void setDurada(int durada) {
 		this.durada = durada;
 	}
 
@@ -85,7 +86,7 @@ public class Obra {
 	
 
 	public String toString() {
-		return "Obra [titol=" + titol + ", durada=" + durada + ", autor=" + autor + ", EsParaMajorsdEdat=" + EsParaMajorsdEdat + "]";
+		return "Obra titol=" + titol + ", durada=" + durada+" min. " + ", autor=" + autor + ", Es para majors d'Edat=" + EsParaMajorsdEdat;
 	}
 	
 	
@@ -94,8 +95,8 @@ public class Obra {
 	 * També heu de crear algunes instàncies  i comprovar tots els mètodes
 	 */
 	
-	//constructor que acepta 4 argumentos (titol, durada, autor, Espara)
-		public Obra(String titol, double durada, String autor, boolean EsParaMajorsdEdat){
+	//constructor que acepta 4 argumentos (titol, durada, autor, EsParaMajorsdEdat)
+		public Obra(String titol, int durada, String autor, boolean EsParaMajorsdEdat){
 			this.titol=titol;
 			this.durada=durada;
 			this.autor=autor;
