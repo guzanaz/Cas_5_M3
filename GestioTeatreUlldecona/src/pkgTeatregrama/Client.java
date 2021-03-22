@@ -17,7 +17,7 @@ public class Client {
 	private String nom;// nombre del cliente
 	private int edat;// edad del cliente
 	private  double diners;// cantidad de dinero del cliente
-	private double valorEntrada=20.00;//valor entrada
+	private double valorEntrada=20;//valor entrada
 
 	// ------------------------------------------------------------------------//
 	// -------------------------------- Métodos -------------------------------//
@@ -40,54 +40,67 @@ public class Client {
 	/**
 	 * @return the diners
 	 */
-	public double getDiners() {
+	public double getDiners(){
 		return diners;
+	}
+	
+	public double getValorEntrada() {
+		return valorEntrada;
 	}
 
 	/**
 	 * @param nom the nom to set
 	 */
-	public void setNom(String nom) {
+	public void setNom(String nom){
 		this.nom = nom;
 	}
 
 	/**
 	 * @param edat the edat to set
 	 */
-	public void setEdat(int edat) {
+	public void setEdat(int edat){
 		this.edat = edat;
 	}
 
 	/**
 	 * @param diners the diners to set
 	 */
-	public void setDiners(double diners) {
+	public void setDiners(double diners){
 		this.diners = diners;
+	}
+	
+
+	public void setValorEntrada(double valorEntrada) {
+		this.valorEntrada = valorEntrada;
 	}
 	
 	/**
 	 * Método teDiners. Mira si el cliente tiene suficiente dinero para pagar la
 	 * entrada al teatro. Utiliza el paso de valores por valor.
-	 * @param double diners
+	 * @param double valorEntrada (para comparar con el total de diners que tiene el cliente)
 	 * @return true or false
 	 */
-	public boolean teDiners(double diners){
+	public boolean teDiners(double valorEntrada){
 		boolean resultado;
-
+		if(diners>=valorEntrada){
+			resultado=true;
+		}else {
+			resultado=false;
+		}
 		return resultado;
 	}
 
 	/**
 	 * Método pagarEntrada. Resta el dinero de la entrada al dinero del cliente.
 	 * Utiliza el paso de valores por valor y actualiza el atributo diners.
-	 * @param nada
-	 * @return cambio después de pagar entrada.
+	 * @param double valorEntrada
+	 * @return double diners actualizado (cambio después de pagar entrada).
 	 */
 	public double pagarEntrada(double valorEntrada) {
 		double cambio;
 		cambio=diners-valorEntrada;
 		diners=cambio;
-		return diners;
+		return diners;//actualizamos el valor de diners o no
 	}
 
 	/**
@@ -95,7 +108,7 @@ public class Client {
 	 * @param nada.
 	 * @return true or false.
 	 */
-	public boolean mayorEdat(){
+	public boolean majorEdat(){
 		boolean resultado;
 		if (edat>=18) {
 			resultado=true;
@@ -146,12 +159,14 @@ public class Client {
 	public static void main(String[] args) {
 		// Prueba crear objetos cliente
 		Client client1 = new Client("Daniela",30,500.00);
-		Client client2 = new Client("Gabriela",28,1000.00);
+		Client client2 = new Client("Gabriela",27,1000.00);
 		
-		client1.pagarEntrada();
-		
+		client1.pagarEntrada(client1.getValorEntrada());
+		client2.pagarEntrada(client2.getValorEntrada());
 		System.out.println("después de pagar la entrada "+client1.getNom()+" tiene "+client1.getDiners()+"€");
 		System.out.println(client2.toString());
 	}// fin main
+
+
 
 }// fin public class Client

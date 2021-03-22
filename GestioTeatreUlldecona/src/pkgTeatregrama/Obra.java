@@ -21,7 +21,7 @@ public class Obra {
 	private String titol;
 	private double durada;
 	private String autor;
-	private boolean majorEdat;
+	private boolean EsParaMajorsdEdat;
 	
 	/**
 	 * Recordeu crear mètodes (getters i setters i toString).
@@ -49,10 +49,10 @@ public class Obra {
 	}
 
 	/**
-	 * @return the majorEdat
+	 * @return the EsParaMajorsdEdat
 	 */
-	public boolean isMajorEdat() {
-		return majorEdat;
+	public boolean EsParaMajorsdEdat() {
+		return EsParaMajorsdEdat;
 	}
 
 	/**
@@ -79,13 +79,13 @@ public class Obra {
 	/**
 	 * @param majorEdat the majorEdat to set
 	 */
-	public void setMajorEdat(boolean majorEdat) {
-		this.majorEdat = majorEdat;
+	public void setEsParaMajorsdEdat(boolean EsParaMajorsdEdat) {
+		this.EsParaMajorsdEdat = EsParaMajorsdEdat;
 	}
 	
 
 	public String toString() {
-		return "Obra [titol=" + titol + ", durada=" + durada + ", autor=" + autor + ", majorEdat=" + majorEdat + "]";
+		return "Obra [titol=" + titol + ", durada=" + durada + ", autor=" + autor + ", EsParaMajorsdEdat=" + EsParaMajorsdEdat + "]";
 	}
 	
 	
@@ -94,12 +94,13 @@ public class Obra {
 	 * També heu de crear algunes instàncies  i comprovar tots els mètodes
 	 */
 	
-	//constructor que acepta 3 argumentos (nom, edat i diners)
-		public Client (String titol, double durada, String autor, boolean majorEdat) {
+	//constructor que acepta 4 argumentos (titol, durada, autor, Espara)
+		public Obra(String titol, double durada, String autor, boolean EsParaMajorsdEdat){
 			this.titol=titol;
-			this.
+			this.durada=durada;
+			this.autor=autor;
+			this.EsParaMajorsdEdat=EsParaMajorsdEdat;
 		}
-	
 	
 	
 	/**
@@ -108,6 +109,9 @@ public class Obra {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		Obra obra1=new Obra("Los Pensamientos",120,"Tamara Acosta",true);
+		System.out.println(obra1.toString());
 
 	}
 
