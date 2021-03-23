@@ -1,5 +1,5 @@
 package pkgGestioTeatreUlldecona;
-import pkgTeatregrama.Client;
+import pkgTeatregrama.*;
 /**
  * Cas_5 M03 Programa GestioTeatreUlldecona: Programa inicial del proyecto del
  * mismo nombre. Implementa una aplicación para la gestión del teatro (obras,
