@@ -8,7 +8,7 @@ package pkgTeatregrama;
  * inicial GestioTeatreUlldecona.java
  * 
  * @author Daniela Gallardo Reyes
- * @version 1.0 (Esqueleto de la clase)
+ * @version 2.0 (Pruebas de funcionamiento)
  * @since 15-03-2021
  */
 
@@ -86,10 +86,15 @@ public class Obra {
 	
 
 	public String toString() {
-		return "Obra titol=" + titol + ", durada=" + durada+" min. " + ", autor=" + autor + ", Es para majors d'Edat=" + EsParaMajorsdEdat;
+		return "Obra titol=" + titol + 
+				"\ndurada=" + durada+"min." + 
+				"\nautor=" + autor + 
+				"\nEs para majors d'Edat=" + EsParaMajorsdEdat;
 	}
 	
-	
+	// ------------------------------------------------------------------------//
+	// --------------------------- Constructor/es -----------------------------//
+	// ------------------------------------------------------------------------//	
 	/**
 	 * i un constructor semblants al cas anterior. 
 	 * També heu de crear algunes instàncies  i comprovar tots els mètodes
@@ -103,20 +108,27 @@ public class Obra {
 			this.EsParaMajorsdEdat=EsParaMajorsdEdat;
 		}
 	
-	
+	//constructor de obra  para usarlo en teatre.java
+		public Obra(Obra obra) {
+			this.titol=obra.titol;
+			this.durada=obra.durada;
+			this.autor=obra.autor;
+			this.EsParaMajorsdEdat=obra.EsParaMajorsdEdat;
+		}
 	/**
 	 * main sólo para pruebas debe ser borrado en su versión final
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Obra obra1=new Obra("Los Pensamientos",120,"Tamara Acosta",true);
-		System.out.println(obra1.toString());
+		//prueba crear objeto obra
+		Obra obraNueva=new Obra("Los Pensamientos",120,"Tamara Acosta",true);
+		System.out.println(obraNueva.toString());
 
+	}//fin main
+
+	public Obra getObra(Obra Obra) {
+		return Obra;
 	}
 
-
-	
-
-}
+}//fin clase

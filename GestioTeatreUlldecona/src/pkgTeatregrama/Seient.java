@@ -8,21 +8,20 @@ package pkgTeatregrama;
  * inicial GestioTeatreUlldecona.java
  * 
  * @author Daniela Gallardo Reyes
- * @version 1.0 (Esqueleto de la clase)
+ * @version 2.0 (pruebas de funcionamiento)
  * @since 15-03-2021
  */
 
 public class Seient {
-	
 	/**
 	 * Els atributs seran 
 	 * la fila, 
 	 * el numero 
 	 * i public (la persona que l’ocupa o null).
 	 */
-	 private String fila;
+	 private int fila;
 	 private int num;
-	 private String publico;
+	 private Client client;
 	 
 	// ------------------------------------------------------------------------//
 	// -------------------------------- Métodos -------------------------------//
@@ -30,10 +29,9 @@ public class Seient {
 	/**
 	 * @return the fila
 	 */
-	public String getFila() {
+	public int getFila() {
 		return fila;
 	}
-
 
 	/**
 	 * @return the num
@@ -44,17 +42,17 @@ public class Seient {
 
 
 	/**
-	 * @return the publico
+	 * @return the client
 	 */
-	public String getPublico() {
-		return publico;
+	public Client getClient() {
+		return client;
 	}
 
 
 	/**
 	 * @param fila the fila to set
 	 */
-	public void setFila(String fila) {
+	public void setFila(int fila) {
 		this.fila = fila;
 	}
 
@@ -68,15 +66,24 @@ public class Seient {
 
 
 	/**
-	 * @param publico the publico to set
+	 * @param client the client to set
 	 */
-	public void setPublico(String publico) {
-		this.publico = publico;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 
 	public String toString() {
-		return "Seient fila=" + fila + ", num=" + num + ", publico=" + publico;
+		String tempPublico;
+		if (client!=null) {
+			//llamar met clase client tostring
+			tempPublico=client.toString();
+		}else {
+			tempPublico="Disponible";
+		}
+		
+		
+		return "Seient fila:" + fila + ", num:" + num + ", client:" + tempPublico;
 	}
 
 
@@ -86,21 +93,20 @@ public class Seient {
 	 * @param 
 	 * @return true or false
 	 */
-	public boolean seientDisponible(){
-		boolean resultado=true;//por decir algo
-		
-		return resultado;
+	public boolean seientOcupat(){
+	
+		return client!=null;
 	}
 	
 	
 	// ------------------------------------------------------------------------//
 	// --------------------------- Constructor/es -----------------------------//
 	// ------------------------------------------------------------------------//
-	//constructor que acepta 3 argumentos (fila, num, publico)
-	public Seient(String fila, int num, String publico){
+	//constructor que acepta 3 argumentos (fila, num, client)
+	public Seient(int fila, int num, Client client){
 		this.fila=fila;
 		this.num=num;
-		this.publico=publico;
+		this.client=client;
 	}
 
 	/**
@@ -108,24 +114,20 @@ public class Seient {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		Client client1=new Client("Daniela",30,300);
 		// creamos instancias de prueba
-		Seient seient1=new Seient("A",1,"Juanita");
-		Seient seient2=new Seient(" ",0," ");
+		Seient seient1=new Seient(1,1,client1);
 		
-		//pruebas método set
-		seient2.setFila("Z");
-		seient2.setNum(12);
-		seient2.setPublico("Josefa");
+		Seient seient2=new Seient(2,12,null);
 		
-		//imprimimos para comprobar met. toString
-		System.out.println(seient1.toString());
-		System.out.println(seient2.toString());
+
 		
 		//imprimimos para comprobar met. get
-		System.out.println("seient1 fila= "+ seient1.getFila());
-		System.out.println("seient1 nro= "+ seient1.getNum());
-		System.out.println("seient1 publico="+ seient1.getPublico());
-		System.out.println(seient2.toString());		
+//		System.out.println("seient1 fila= "+ seient1.getFila());
+//		System.out.println("seient1 nro= "+ seient1.getNum());
+		System.out.println(seient2.toString());
+		System.out.println(seient1.toString());		
 	}
 
 }
