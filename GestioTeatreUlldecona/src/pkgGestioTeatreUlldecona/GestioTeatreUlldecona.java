@@ -75,7 +75,7 @@ public class GestioTeatreUlldecona {
 	}// fin método main
 
 	/**
-	 * Función Menú. Imprime el menú de opciones por pantalla y pide seleccionar una por teclado
+	 * Función Menú. Imprime el menú de opciones por pantalla y pide ingresar una por teclado
 	 * @param opcions
 	 * @return opción seleccionada tipo char
 	 */
