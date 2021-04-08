@@ -75,10 +75,9 @@ public class GestioTeatreUlldecona {
 	}// fin método main
 
 	/**
-	 * Función Menú
-	 * 
+	 * Función Menú. Imprime el menú de opciones por pantalla y pide seleccionar una por teclado
 	 * @param opcions
-	 * @return imprime opciones del menú para gestionar el teatro
+	 * @return opción seleccionada tipo char
 	 */
 	public static char menu(String[] opcions) {
 		System.out.println("-----------------------------");
