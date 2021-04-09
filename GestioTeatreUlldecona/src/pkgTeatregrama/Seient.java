@@ -79,7 +79,7 @@ public class Seient {
 			//llamar met clase client tostring
 			tempPublico=client.toString();
 		}else {
-			tempPublico="Disponible";
+			tempPublico="ningú";
 		}
 		
 		

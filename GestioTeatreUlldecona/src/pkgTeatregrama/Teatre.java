@@ -1,6 +1,5 @@
 package pkgTeatregrama;
 
-//import java.util.Arrays;
 
 /**
  * Cas_5 M03 Clase Teatre: clase del proyecto GestioTeatreUlldecona. Conforma el
@@ -132,8 +131,8 @@ public class Teatre {
 	}
 
 	/**
-	 * método que retorna si un asiento está ocupado
-	 * 
+	 * método para reservar una butaca.
+	 * Si no está disponible avisa.
 	 * @param sessio
 	 * @return si está disponible o no
 	 */
@@ -145,6 +144,32 @@ public class Teatre {
 		}
 	}
 
+	public void voreSeientsOcupats() {
+		System.out.println("----------------------------------------------");
+		System.out.println("|                                            |");
+		System.out.println("|                  escenari                  |");
+		System.out.println("|                                            |");
+		System.out.println(" ---------------------------------------------");
+		for (int i = 0; i < fila; i++) {
+			for (int j = 0; j < num; j++) {
+				if(sessio[i][j].getClient()==null){
+					//si el asiento está disponible
+					System.out.print("| F"+(i+1)+"S"+(j+1)+" O ");
+					   if (j+1 == num) {
+						     System.out.println("|\b");   
+					   }
+				}else {
+					//si el asiento está ocupado
+					System.out.print("| F"+(i+1)+"S"+(j+1)+" X ");
+					   if (j+1 == num) {
+						     System.out.println("|\b");
+					   }
+				}
+			}
+		}
+	}
+		
+
 	// getter de asientos
 	public Seient getSeient(int fila, int num) {
 		return sessio[fila - 1][num - 1];
@@ -152,7 +177,6 @@ public class Teatre {
 
 	/**
 	 * Método que imprime los asientos del teatro.
-	 * 
 	 * @param nada
 	 * @return nada
 	 */
@@ -168,8 +192,8 @@ public class Teatre {
 		return "Teatre Ulldecona \n"+ 
 				obra + 
 				"\npreu=" + preu + 
-				"\nfila=" + fila + 
-				"\nnum=" + num;
+				"\nFilas=" + fila + 
+				"\nNum Seients=" + num;
 	}
 
 	/**
@@ -178,13 +202,29 @@ public class Teatre {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 
-		Obra obraNueva=new Obra("Los Pensamientos",120,"Tamara Acosta",true);
+		// ejemplo objeto cliente
+		Client client1 = new Client("Daniela", 30, 300.00);
+		System.out.println("el público " + client1.getNom() + " tiene una cantidad de dinero "
+				+ client1.teDiners(client1.getValorEntrada()));
 		
+		//Seient ejemplo		
+		Seient seient1=new Seient(2,2,client1);
+		System.out.println(seient1.toString());
+
+		// ejemplo objeto obra
+		Obra obraNueva = new Obra("Los Pensamientos", 120, "Tamara Acosta", true);
+		System.out.println(obraNueva.toString());
+
 		// ejemplo de objeto de la clase Teatre
-		Teatre teatre1 = new Teatre(obraNueva,20, 1, 2);
-		System.out.println(teatre1.toString());
+		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 5,5);
+		System.out.println(teatreUlldecona.toString());
 
+		//Probar método asientos disponibles
+		teatreUlldecona.imprimirTodosAsientos();
+		//Reservar asiento
+		teatreUlldecona.reservaSeient(seient1);
+		//
+		teatreUlldecona.imprimirTodosAsientos();
+		teatreUlldecona.voreSeientsOcupats();
 	}
-
 }
