@@ -145,22 +145,22 @@ public class Teatre {
 	}
 
 	public void voreSeientsOcupats() {
-		System.out.println("----------------------------------------------");
-		System.out.println("|                                            |");
-		System.out.println("|                  escenari                  |");
-		System.out.println("|                                            |");
-		System.out.println(" ---------------------------------------------");
+		System.out.println(" --------------------------------------------------");
+		System.out.println("|                                                  |");
+		System.out.println("|                     escenari                     |");
+		System.out.println("|                                                  |");
+		System.out.println(" --------------------------------------------------");
 		for (int i = 0; i < fila; i++) {
 			for (int j = 0; j < num; j++) {
 				if(sessio[i][j].getClient()==null){
 					//si el asiento está disponible
-					System.out.print("| F"+(i+1)+"S"+(j+1)+" O ");
+					System.out.print("| F"+(i+1)+".S"+(j+1)+" O ");
 					   if (j+1 == num) {
 						     System.out.println("|\b");   
 					   }
 				}else {
 					//si el asiento está ocupado
-					System.out.print("| F"+(i+1)+"S"+(j+1)+" X ");
+					System.out.print("| F"+(i+1)+".S"+(j+1)+" X ");
 					   if (j+1 == num) {
 						     System.out.println("|\b");
 					   }
@@ -202,16 +202,16 @@ public class Teatre {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// ejemplo objeto cliente
+		// Prueba crear objeto client1
 		Client client1 = new Client("Daniela", 30, 300.00);
 		System.out.println("el público " + client1.getNom() + " tiene una cantidad de dinero "
 				+ client1.teDiners(client1.getValorEntrada()));
 		
-		//Seient ejemplo		
+		//Prueba crear objeto seient1 		
 		Seient seient1=new Seient(2,2,client1);
 		System.out.println(seient1.toString());
 
-		// ejemplo objeto obra
+		// prueba ejemplo objeto obra
 		Obra obraNueva = new Obra("Los Pensamientos", 120, "Tamara Acosta", true);
 		System.out.println(obraNueva.toString());
 
@@ -219,12 +219,14 @@ public class Teatre {
 		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 5,5);
 		System.out.println(teatreUlldecona.toString());
 
-		//Probar método asientos disponibles
+		//Probar método asientos disponibles sin asientos asignados
 		teatreUlldecona.imprimirTodosAsientos();
 		//Reservar asiento
 		teatreUlldecona.reservaSeient(seient1);
-		//
+		//Probar método asientos disponibles CON asiento asignado
 		teatreUlldecona.imprimirTodosAsientos();
+	
+		//prueba método para ver los asientos ocupados X=ocupado O=disponible
 		teatreUlldecona.voreSeientsOcupats();
 	}
 }
