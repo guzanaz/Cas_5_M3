@@ -1,6 +1,5 @@
 package pkgTeatregrama;
 
-import pkgGestioTeatreUlldecona.GestioTeatreUlldecona;
 
 /**
  * Cas_5 M03 Clase Teatre: clase del proyecto GestioTeatreUlldecona. Conforma el
@@ -14,20 +13,14 @@ import pkgGestioTeatreUlldecona.GestioTeatreUlldecona;
 
 public class Teatre {
 	// Estructura de la clase: Creamos los atributos para cada teatro
-	private Obra obra;// nom de la obra
+	private static Obra obra;// nom de la obra
 	private double preu;// valor de la entrada
 	private Seient[][] sessio;// butacas disponibles c/nro de fila y nro de asiento
-<<<<<<< HEAD
 	private int fila;// para asignar el índice de filas al array sessio
 	private int num;// para asignar el índice de num de butaca
-	private static Teatre teatre;// nom de la obra
-=======
-	private int fila;// para probar
-	private int num;// para probar
 
->>>>>>> parent of a61338c (pruebas en el main)
 	// ------------------------------------------------------------------------//
-	// -------------------------------- Métodos -------------------------------//
+	// ---------------------------- Métodos get&set ---------------------------//
 	// ------------------------------------------------------------------------//
 
 	/**Getter de obra
@@ -138,10 +131,11 @@ public class Teatre {
 	}
 
 	/**
-	 * método para reservar una butaca.
+	 * Método reservaSeient(). 
+	 * Para asignar una butaca a un client.
 	 * Si no está disponible avisa.
 	 * @param sessio
-	 * @return si está disponible o no
+	 * @return nada
 	 */
 	public void reservaSeient(Seient seient) {
 		if (sessio[seient.getFila() - 1][seient.getNum() - 1].getClient() == null) {
@@ -150,13 +144,20 @@ public class Teatre {
 			System.out.println("No s'ha pogut vendre perquè el seient ja està ocupat");
 		}
 	}
-
+	/**
+	 * Método voreSeientsOcupats(). 
+	 * Muestra por pantalla visualmente cómo queda 
+	 * el patio de butacas(seients)en forma de tabla.
+	 * Siendo Ocupado "X" y Disponible "O"
+	 * @param nada
+	 * @return nada
+	 */
 	public void voreSeientsOcupats() {
-		System.out.println(" --------------------------------------------------");
-		System.out.println("|                                                  |");
-		System.out.println("|                     escenari                     |");
-		System.out.println("|                                                  |");
-		System.out.println(" --------------------------------------------------");
+		System.out.println(" -------------------------------------------------");
+		System.out.println("|                                                 |");
+		System.out.println("|                     escenari                    |");
+		System.out.println("|                                                 |");
+		System.out.println(" -------------------------------------------------");
 		for (int i = 0; i < fila; i++) {
 			for (int j = 0; j < num; j++) {
 				if(sessio[i][j].getClient()==null){
@@ -174,12 +175,6 @@ public class Teatre {
 				}
 			}
 		}
-	}
-		
-
-	// getter de asientos
-	public Seient getSeient(int fila, int num) {
-		return sessio[fila - 1][num - 1];
 	}
 
 	/**
@@ -217,39 +212,26 @@ public class Teatre {
 		//Prueba crear objeto seient1 		
 		Seient seient1=new Seient(2,2,client1);
 		System.out.println(seient1.toString());
-
-		// prueba ejemplo objeto obra
+		
+		//Prueba crear objeto obraNueva
 		Obra obraNueva = new Obra("Los Pensamientos", 120, "Tamara Acosta", true);
 		System.out.println(obraNueva.toString());
-
-		// ejemplo de objeto de la clase Teatre
-		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 5,5);
+		
+		//Prueba crear objeto teatreUlldecona
+		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 7,5);
 		System.out.println(teatreUlldecona.toString());
-
-		//Probar método asientos disponibles sin asientos asignados
+		
+		//Prueba método asientos disponibles sin asientos asignados
 		teatreUlldecona.imprimirTodosAsientos();
-		//Reservar asiento
+		
+		//Prueba Reservar asiento
 		teatreUlldecona.reservaSeient(seient1);
-		//Probar método asientos disponibles CON asiento asignado
+		
+		//Prueba método asientos disponibles CON asiento asignado
 		teatreUlldecona.imprimirTodosAsientos();
-	
+		
 		//prueba método para ver los asientos ocupados X=ocupado O=disponible
 		teatreUlldecona.voreSeientsOcupats();
 	}
-
-	/**
-	 * @return the teatre
-	 */
-	public Teatre getTeatre() {
-		return teatre;
-	}
-
-	/**
-	 * @param teatre the teatre to set
-	 */
-	public void setTeatre(Teatre teatre) {
-		GestioTeatreUlldecona.teatre = teatre;
-	}
-
 
 }
