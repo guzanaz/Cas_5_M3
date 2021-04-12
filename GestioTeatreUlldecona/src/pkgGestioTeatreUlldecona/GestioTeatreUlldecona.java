@@ -2,14 +2,13 @@ package pkgGestioTeatreUlldecona;
 
 import pkgTeatregrama.*;
 
-import java.util.*;
+import java.util.Scanner;
 
 /**
  * Cas_5 M03 Programa GestioTeatreUlldecona: Programa inicial del proyecto del
  * mismo nombre. Implementa una aplicación para la gestión del teatro (obras,
  * público, patio de butacas). Llama a las clases Client.java, Teatre.java,
  * Obra.java y Seient.java
- * 
  * @author Daniela Gallardo Reyes
  * @version 2.0
  * @since 15-03-2021
@@ -17,7 +16,6 @@ import java.util.*;
 
 public class GestioTeatreUlldecona {
 	
-
 	// método main
 	public static void main(String[] args) {
 
@@ -37,6 +35,21 @@ public class GestioTeatreUlldecona {
 		// 4.Crear objeto Teatre e inicializar su valor
 		Teatre teatreUlldecona=null;
 		
+		//num de clients
+		int num_clients=5;
+		//5. Array de objetos client/public
+		Client client[]= new Client[num_clients];
+		//5.1 Asignar un valor inicial al array de objetos client/public
+//		int contador;
+//		for(contador=0; contador<client.length;contador++) {
+//			client[contador]=null;
+//		}
+		client[0]= null;
+		client[1]= null;
+		client[2]= null;
+		client[3]= null;
+		client[4]= null;
+		
 		do {
 			//var para guardarnos la opcion seleccionada
 			char opcio;
@@ -51,9 +64,9 @@ public class GestioTeatreUlldecona {
 				System.out.println("-----------------------------");
 				obra=crearObraTeatre();
 				
-				System.out.println("-----------------------------");
-				System.out.println("    OBRA CREADA CON ÉXITO!   ");
-				System.out.println("-----------------------------");				
+				System.out.println("------------------------------");
+				System.out.println("     OBRA CREADA AMB ÈXIT!    ");
+				System.out.println("------------------------------");				
 				System.out.println(obra.toString());
 				break;
 
@@ -62,7 +75,7 @@ public class GestioTeatreUlldecona {
 				System.out.println("[s](Crear) sala de teatre");
 				System.out.println("-------------------------");
 				if (obra==null) {
-					System.out.println("Debes crear una obra antes de crear una sala");
+					System.out.println("Has de crear una obra abans de crear una sala");
 				}else{
 				teatreUlldecona=crearSalaTeatre(obra);
 				teatreUlldecona.voreSeientsOcupats();
@@ -70,30 +83,83 @@ public class GestioTeatreUlldecona {
 				
 				break;
 			case 'p':
+				System.out.println("------------------------------");
 				System.out.println("[p](Crear) persona del público");
+				System.out.println("------------------------------");
+				if (obra==null || teatreUlldecona==null) {
+					System.out.println("Abans de crear el públic has de crear primero una obra i luego una sala");
+				};
 				
-				
+				for (int i=0;i<client.length;i++) {
+					if(client[i]==null){
+						client[i]=crearClientPublic();
+						System.out.println("---------------");
+						System.out.println("CLIENT CREAT...");
+						System.out.println("---------------");
+						System.out.println(client[i].toString());
+						
+						//método para pagar entrada
+						System.out.println("-----------------");
+						System.out.println("PAGANT ENTRADA...");
+						System.out.println("-----------------");
+						client[i].pagarEntrada(client[i], teatreUlldecona);
+						System.out.println(client[i].toString());
+						//método para asignar un asiento
+						System.out.println("--------------------");
+						System.out.println("ASSIGNA UN SEIENT...");
+						System.out.println("--------------------");
+						System.out.println("Estos son los asientos disponibles:");
+						teatreUlldecona.voreSeientsOcupats();
+						Scanner sc1=new Scanner(System.in);
+						Scanner sc2=new Scanner(System.in);
+						System.out.println("En qué fila quieres tu asiento?");
+						int fila=sc1.nextInt();
+						System.out.println("De la fila "+fila+" qué asiento quieres?");
+						int num=sc2.nextInt();
+						Seient seient= new Seient(fila, num, client[i]);						
+						teatreUlldecona.reservaSeient(seient);
+						//Confirmación de reseva
+						System.out.println("-------------------");
+						System.out.println("RESERVANT SEIENT...");
+						System.out.println("-------------------");
+						System.out.println(seient.toString());
+						teatreUlldecona.voreSeientsOcupats();
+						teatreUlldecona.imprimirTodosAsientos();
+						break;
+					}	                    
+				}
 				break;
 
 			case 'v':
+				System.out.println("------------------------");
 				System.out.println("[v]Vore pati de butaques");
+				System.out.println("------------------------");
+				if (obra==null || teatreUlldecona==null) {
+					System.out.println("Per veure el pati de butaques has de crear una sala de teatre");
+				}else{
 				teatreUlldecona.voreSeientsOcupats();
-
+				}
+				break;
+				
+			case 'l':
+				teatreUlldecona.llistarPublico();
 				break;
 			
 			case 'x':
-				System.out.println("[x]sortir");
-				System.out.println("Fin del programa. ¡Adiós!");
+				System.out.println("----------------------");
+				System.out.println("      [x]Sortir!      ");
+				System.out.println("----------------------");
+				System.out.println("Fi del programa. Adeu!");
+				System.out.println("----------------------");
 				sortir = true;
 				break;	
 				
 			default:
 				System.out.println("\n-----------------------------------------");
-				System.out.println("| OJO! debes ingresar una opción válida!|");
+				System.out.println("| ULL! has d'ingressar una opció vàlida!|");
 				System.out.println("-----------------------------------------\n");
 				sortir=false;
 			}
-
 		} while (sortir == false);
 
 	}// fin método main
@@ -139,12 +205,12 @@ public class GestioTeatreUlldecona {
 		String autor;
 		boolean EsParaMajorsdEdat;
 		
-		System.out.println("Ingresa el nombre de la OBRA");
+		System.out.println("Ingressa el nom de l'OBRA");
 		titol=sc.nextLine();
-		System.out.println("Ingresa la durada de "+titol+ " en minutes");
+		System.out.println("Ingressa la durada de "+titol+ " en minuts");
 		durada=sc.nextInt();
 		Scanner sc2=new Scanner(System.in);
-		System.out.println("Ingresa el autor de l'OBRA "+titol);
+		System.out.println("Ingressa l'autor de l'OBRA "+titol);
 		autor=sc2.nextLine();
 		
 		EsParaMajorsdEdat=sn();
@@ -172,7 +238,8 @@ public class GestioTeatreUlldecona {
 		}else if(es_o_no=='n') {
 			resposta=false;
 		}else if(es_o_no!='s'||es_o_no!='n') {
-			System.out.println("debes ingresar un carácter válido");
+			System.out.println("has d'introduir un caràcter vàlid");
+			System.out.println("s ó n");
 		}
 		return resposta;
 	}
@@ -190,15 +257,38 @@ public class GestioTeatreUlldecona {
 		double preu; 
 		int fila; 
 		int num;
-		System.out.println("Ingresa el valor de la entrada");
+		System.out.println("Ingressa el preu de l'entrada");
 		preu=sc1.nextDouble();
-		System.out.println("Cuántas filas de asientos tendrá la sala?");
+		System.out.println("Quantes files de seients tindrà la sala?");
 		fila=sc1.nextInt();
-		System.out.println("Cuántas cuantos seients tendrá cada fila?");
+		System.out.println("Quants seients tindrà cada fila?");
 		num=sc2.nextInt();
 		
 		nuevaSala=new Teatre(obra,preu,fila,num);
 		return nuevaSala;
 	}
+	
+	/**
+	 * Método crearClientPublic().
+	 * Crea un objeto de tipo Client que sería el público del teatro.
+	 * @param nada
+	 * @return objeto de la clase Client.
+	 */
+	public static Client crearClientPublic() {
+		Scanner sc=new Scanner(System.in);
+		Client nouClient;
+		String nom;
+		int edat;
+		double diners;
+		System.out.println("Ingressa el nom del client del public");
+		nom=sc.nextLine();
+		System.out.println("Ingressa la edat de "+nom);
+		edat=sc.nextInt();
+		System.out.println("Quants diners té "+nom);
+		diners=sc.nextDouble();
+		nouClient=new Client(nom,edat,diners);
+		return nouClient;
+	}
+	
 
 }// fin clase GestioTeatreUlldecona

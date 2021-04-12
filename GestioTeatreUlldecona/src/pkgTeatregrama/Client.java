@@ -17,8 +17,6 @@ public class Client {
 	private String nom;// nombre del cliente
 	private int edat;// edad del cliente
 	private double diners;// dinero del cliente
-	private double valorEntrada = 20;// valor entrada para pruebas este hay que quitarlo
-
 	
 	// ------------------------------------------------------------------------//
 	// -------------------------------- Métodos -------------------------------//
@@ -45,10 +43,6 @@ public class Client {
 		return diners;
 	}
 
-	public double getValorEntrada() {
-		return valorEntrada;
-	}
-
 	/**
 	 * @param nom the nom to set
 	 */
@@ -70,9 +64,7 @@ public class Client {
 		this.diners = diners;
 	}
 
-	public void setValorEntrada(double valorEntrada) {
-		this.valorEntrada = valorEntrada;
-	}
+
 
 	/**
 	 * Método teDiners. Mira si el cliente tiene suficiente dinero para pagar la
@@ -81,8 +73,8 @@ public class Client {
 	 *               cliente)
 	 * @return true or false
 	 */
-	public boolean teDiners(double valorEntrada) {
-		return (diners >= valorEntrada);
+	public boolean teDiners(Teatre teatre) {
+		return (diners >= teatre.getPreu());
 	}
 
 	/**
@@ -92,8 +84,12 @@ public class Client {
 	 * @param double valorEntrada
 	 * @return double diners actualizado (cambio después de pagar entrada).
 	 */
-	public double pagarEntrada(double valorEntrada) {	
-		diners=diners-valorEntrada;
+	public double pagarEntrada(Client client, Teatre teatre) {	
+		if(client.teDiners(teatre)==true) {
+			diners=diners-teatre.getPreu();
+		}else {
+			System.out.println("El client no té prou diners per pagar l'entrada");
+		}
 		return diners;//actualizamos el valor de diners o no
 	}
 
@@ -158,19 +154,19 @@ public class Client {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Prueba crear objeto cliente sin suficiente dinero
-		Client client1 = new Client("Daniela", 30, 5.00);
-		System.out.println("el público "+client1.getNom()+" tiene una cantidad de dinero "+client1.teDiners(client1.getValorEntrada()));
-		
-		client1.pagarEntrada(client1.getValorEntrada());
-		System.out.println("después de pagar la entrada " + client1.getNom() + " tiene " + client1.getDiners() + "€");
-		
-		Client client2 = new Client("Gabriela", 17, 1000.00);
-
-		client2.pagarEntrada(client2.getValorEntrada());
-		System.out.println("después de pagar la entrada " + client2.getNom() + " tiene " + client2.getDiners() + "€");
-		System.out.println(client2.majorEdat());
-		
+//		// Prueba crear objeto cliente sin suficiente dinero
+//		Client client1 = new Client("Daniela", 30, 5.00);
+//		System.out.println("el público "+client1.getNom()+" tiene una cantidad de dinero "+client1.teDiners(client1.getValorEntrada()));
+//		
+//		client1.pagarEntrada(client1.getValorEntrada());
+//		System.out.println("después de pagar la entrada " + client1.getNom() + " tiene " + client1.getDiners() + "€");
+//		
+//		Client client2 = new Client("Gabriela", 17, 1000.00);
+//
+//		client2.pagarEntrada(client2.getValorEntrada());
+//		System.out.println("después de pagar la entrada " + client2.getNom() + " tiene " + client2.getDiners() + "€");
+//		System.out.println(client2.majorEdat());
+//		
 		
 	}// fin main
 	

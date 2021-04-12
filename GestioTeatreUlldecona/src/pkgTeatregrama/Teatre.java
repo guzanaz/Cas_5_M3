@@ -1,5 +1,6 @@
 package pkgTeatregrama;
 
+import java.util.Scanner;
 
 /**
  * Cas_5 M03 Clase Teatre: clase del proyecto GestioTeatreUlldecona. Conforma el
@@ -138,6 +139,7 @@ public class Teatre {
 	 * @return nada
 	 */
 	public void reservaSeient(Seient seient) {
+		
 		if (sessio[seient.getFila() - 1][seient.getNum() - 1].getClient() == null) {
 			sessio[seient.getFila() - 1][seient.getNum() - 1] = seient;
 		} else {
@@ -190,6 +192,25 @@ public class Teatre {
 		}
 	}
 
+	/**
+	 * Método que lista al público.
+	 * @param nada
+	 * @return nada
+	 */
+	public void llistarPublico() {
+		for (int i = 0; i < fila; i++) {
+			for (int j = 0; j < num; j++) {
+				System.out.println("\b----------------------------------------------------------");
+				System.out.println("                    Informació públic                      ");
+				System.out.println("----------------------------------------------------------\b");
+				if(sessio[i][j].getClient()!=null){
+					//imprime los datos
+					System.out.println(sessio[i][j].toString());
+					System.out.println("----------------------------------------------------------\b");
+				}
+			}
+		}
+	}
 	public String toString() {
 		return "Teatre Ulldecona \n"+ 
 				obra + 
@@ -206,8 +227,8 @@ public class Teatre {
 	public static void main(String[] args) {
 		// Prueba crear objeto client1
 		Client client1 = new Client("Daniela", 30, 300.00);
-		System.out.println("el público " + client1.getNom() + " tiene una cantidad de dinero "
-				+ client1.teDiners(client1.getValorEntrada()));
+//		System.out.println("el público " + client1.getNom() + " tiene una cantidad de dinero "
+//				+ client1.teDiners(teatreUlldecona.getPreu()));
 		
 		//Prueba crear objeto seient1 		
 		Seient seient1=new Seient(2,2,client1);
@@ -232,6 +253,29 @@ public class Teatre {
 		
 		//prueba método para ver los asientos ocupados X=ocupado O=disponible
 		teatreUlldecona.voreSeientsOcupats();
+	}
+	
+	/**
+	 * Método crearClientPublic().
+	 * Crea un objeto de tipo Client que sería el público del teatro.
+	 * @param nada
+	 * @return objeto de la clase Client.
+	 */
+	public static Client crearClientPublic() {
+		Scanner sc=new Scanner(System.in);
+		Client nouClient;
+		String nom;
+		int edat;
+		double diners;
+		System.out.println("Ingressa el nom del client del public");
+		nom=sc.nextLine();
+		System.out.println("Ingressa la edat del client del public");
+		edat=sc.nextInt();
+		System.out.println("Quants diners té aquest client de públic");
+		diners=sc.nextDouble();
+
+		nouClient=new Client(nom,edat,diners);
+		return nouClient;
 	}
 
 }
