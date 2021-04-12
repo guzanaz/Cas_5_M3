@@ -121,6 +121,7 @@ public class Seient {
 		
 		Seient seient2=new Seient(2,12,null);
 		
+
 		
 		//imprimimos para comprobar met. get
 //		System.out.println("seient1 fila= "+ seient1.getFila());

@@ -17,11 +17,17 @@ public class Teatre {
 	private Obra obra;// nom de la obra
 	private double preu;// valor de la entrada
 	private Seient[][] sessio;// butacas disponibles c/nro de fila y nro de asiento
+<<<<<<< HEAD
 	private int fila;// para asignar el índice de filas al array sessio
 	private int num;// para asignar el índice de num de butaca
 	private static Teatre teatre;// nom de la obra
+=======
+	private int fila;// para probar
+	private int num;// para probar
+
+>>>>>>> parent of a61338c (pruebas en el main)
 	// ------------------------------------------------------------------------//
-	// ---------------------------- Métodos get&set ---------------------------//
+	// -------------------------------- Métodos -------------------------------//
 	// ------------------------------------------------------------------------//
 
 	/**Getter de obra
@@ -132,11 +138,10 @@ public class Teatre {
 	}
 
 	/**
-	 * Método reservaSeient(). 
-	 * Para asignar una butaca a un client.
+	 * método para reservar una butaca.
 	 * Si no está disponible avisa.
 	 * @param sessio
-	 * @return nada
+	 * @return si está disponible o no
 	 */
 	public void reservaSeient(Seient seient) {
 		if (sessio[seient.getFila() - 1][seient.getNum() - 1].getClient() == null) {
@@ -145,20 +150,13 @@ public class Teatre {
 			System.out.println("No s'ha pogut vendre perquè el seient ja està ocupat");
 		}
 	}
-	/**
-	 * Método voreSeientsOcupats(). 
-	 * Muestra por pantalla visualmente cómo queda 
-	 * el patio de butacas(seients)en forma de tabla.
-	 * Siendo Ocupado "X" y Disponible "O"
-	 * @param nada
-	 * @return nada
-	 */
+
 	public void voreSeientsOcupats() {
-		System.out.println(" -------------------------------------------------");
-		System.out.println("|                                                 |");
-		System.out.println("|                     escenari                    |");
-		System.out.println("|                                                 |");
-		System.out.println(" -------------------------------------------------");
+		System.out.println(" --------------------------------------------------");
+		System.out.println("|                                                  |");
+		System.out.println("|                     escenari                     |");
+		System.out.println("|                                                  |");
+		System.out.println(" --------------------------------------------------");
 		for (int i = 0; i < fila; i++) {
 			for (int j = 0; j < num; j++) {
 				if(sessio[i][j].getClient()==null){
@@ -176,6 +174,12 @@ public class Teatre {
 				}
 			}
 		}
+	}
+		
+
+	// getter de asientos
+	public Seient getSeient(int fila, int num) {
+		return sessio[fila - 1][num - 1];
 	}
 
 	/**
@@ -213,24 +217,22 @@ public class Teatre {
 		//Prueba crear objeto seient1 		
 		Seient seient1=new Seient(2,2,client1);
 		System.out.println(seient1.toString());
-		
-		//Prueba crear objeto obraNueva
+
+		// prueba ejemplo objeto obra
 		Obra obraNueva = new Obra("Los Pensamientos", 120, "Tamara Acosta", true);
 		System.out.println(obraNueva.toString());
-		
-		//Prueba crear objeto teatreUlldecona
-		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 7,5);
+
+		// ejemplo de objeto de la clase Teatre
+		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 5,5);
 		System.out.println(teatreUlldecona.toString());
-		
-		//Prueba método asientos disponibles sin asientos asignados
+
+		//Probar método asientos disponibles sin asientos asignados
 		teatreUlldecona.imprimirTodosAsientos();
-		
-		//Prueba Reservar asiento
+		//Reservar asiento
 		teatreUlldecona.reservaSeient(seient1);
-		
-		//Prueba método asientos disponibles CON asiento asignado
+		//Probar método asientos disponibles CON asiento asignado
 		teatreUlldecona.imprimirTodosAsientos();
-		
+	
 		//prueba método para ver los asientos ocupados X=ocupado O=disponible
 		teatreUlldecona.voreSeientsOcupats();
 	}
