@@ -20,13 +20,14 @@ public class GestioTeatreUlldecona {
 	public static void main(String[] args) {
 
 		// 1. Declarar array con opcions del menú fuera de la función
-		String[] opcions = new String[5];
+		String[] opcions = new String[6];
 		Scanner sc = new Scanner(System.in);
 		opcions[0] = "[o](Crear) obra de teatre";
 		opcions[1] = "[s](Crear) sala de teatre";
 		opcions[2] = "[p](Crear) persona del público";
-		opcions[3] = "[v]vore pati de butaques";
-		opcions[4] = "[x]sortir";
+		opcions[3] = "[l]Llistar informació public";
+		opcions[4] = "[v]Vore pati de butaques";
+		opcions[5] = "[x]Sortir";
 
 		// 2. variable para salir del programa
 		boolean sortir = false;
@@ -50,6 +51,9 @@ public class GestioTeatreUlldecona {
 		client[3]= null;
 		client[4]= null;
 		
+		
+		//Seient tipo seient
+		Seient seient=null;
 		do {
 			//var para guardarnos la opcion seleccionada
 			char opcio;
@@ -105,18 +109,7 @@ public class GestioTeatreUlldecona {
 						client[i].pagarEntrada(client[i], teatreUlldecona);
 						System.out.println(client[i].toString());
 						//método para asignar un asiento
-						System.out.println("--------------------");
-						System.out.println("ASSIGNA UN SEIENT...");
-						System.out.println("--------------------");
-						System.out.println("Estos son los asientos disponibles:");
-						teatreUlldecona.voreSeientsOcupats();
-						Scanner sc1=new Scanner(System.in);
-						Scanner sc2=new Scanner(System.in);
-						System.out.println("En qué fila quieres tu asiento?");
-						int fila=sc1.nextInt();
-						System.out.println("De la fila "+fila+" qué asiento quieres?");
-						int num=sc2.nextInt();
-						Seient seient= new Seient(fila, num, client[i]);						
+						seient=asignarAsiento(client[i],teatreUlldecona) ;						
 						teatreUlldecona.reservaSeient(seient);
 						//Confirmación de reseva
 						System.out.println("-------------------");
@@ -290,5 +283,25 @@ public class GestioTeatreUlldecona {
 		return nouClient;
 	}
 	
+	/**
+	 * Método asignar asiento. 
+	 * Complementario para el método reservar asiento.
+	 * @param objeto de la clase Client + objeto de la clase Teatre
+	 */
+	public static Seient asignarAsiento(Client client,Teatre teatre) {	
+	System.out.println("--------------------");
+	System.out.println("ASSIGNA UN SEIENT...");
+	System.out.println("--------------------");
+	System.out.println("Estos son los asientos disponibles:");
+	teatre.voreSeientsOcupats();
+	Scanner sc1=new Scanner(System.in);
+	Scanner sc2=new Scanner(System.in);
+	System.out.println("En qué fila quieres tu asiento?");
+	int fila=sc1.nextInt();
+	System.out.println("De la fila "+fila+" qué asiento quieres?");
+	int num=sc2.nextInt();
+	Seient seient= new Seient(fila, num, client);						
+	return seient;
+	}
 
 }// fin clase GestioTeatreUlldecona

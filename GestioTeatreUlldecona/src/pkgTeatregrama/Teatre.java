@@ -198,15 +198,15 @@ public class Teatre {
 	 * @return nada
 	 */
 	public void llistarPublico() {
+		System.out.println("\b---------------------------------------------------------------------------------");
+		System.out.println("                                llistar public                                    ");
+		System.out.println("---------------------------------------------------------------------------------\b");
 		for (int i = 0; i < fila; i++) {
 			for (int j = 0; j < num; j++) {
-				System.out.println("\b----------------------------------------------------------");
-				System.out.println("                    Informació públic                      ");
-				System.out.println("----------------------------------------------------------\b");
 				if(sessio[i][j].getClient()!=null){
 					//imprime los datos
 					System.out.println(sessio[i][j].toString());
-					System.out.println("----------------------------------------------------------\b");
+					System.out.println("\b---------------------------------------------------------------------------------");
 				}
 			}
 		}
@@ -253,29 +253,6 @@ public class Teatre {
 		
 		//prueba método para ver los asientos ocupados X=ocupado O=disponible
 		teatreUlldecona.voreSeientsOcupats();
-	}
-	
-	/**
-	 * Método crearClientPublic().
-	 * Crea un objeto de tipo Client que sería el público del teatro.
-	 * @param nada
-	 * @return objeto de la clase Client.
-	 */
-	public static Client crearClientPublic() {
-		Scanner sc=new Scanner(System.in);
-		Client nouClient;
-		String nom;
-		int edat;
-		double diners;
-		System.out.println("Ingressa el nom del client del public");
-		nom=sc.nextLine();
-		System.out.println("Ingressa la edat del client del public");
-		edat=sc.nextInt();
-		System.out.println("Quants diners té aquest client de públic");
-		diners=sc.nextDouble();
-
-		nouClient=new Client(nom,edat,diners);
-		return nouClient;
 	}
 
 }
