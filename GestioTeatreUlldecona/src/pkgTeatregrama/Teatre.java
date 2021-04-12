@@ -1,5 +1,6 @@
 package pkgTeatregrama;
 
+import pkgGestioTeatreUlldecona.GestioTeatreUlldecona;
 
 /**
  * Cas_5 M03 Clase Teatre: clase del proyecto GestioTeatreUlldecona. Conforma el
@@ -13,12 +14,12 @@ package pkgTeatregrama;
 
 public class Teatre {
 	// Estructura de la clase: Creamos los atributos para cada teatro
-	private static Obra obra;// nom de la obra
+	private Obra obra;// nom de la obra
 	private double preu;// valor de la entrada
 	private Seient[][] sessio;// butacas disponibles c/nro de fila y nro de asiento
 	private int fila;// para asignar el índice de filas al array sessio
 	private int num;// para asignar el índice de num de butaca
-
+	private static Teatre teatre;// nom de la obra
 	// ------------------------------------------------------------------------//
 	// ---------------------------- Métodos get&set ---------------------------//
 	// ------------------------------------------------------------------------//
@@ -233,4 +234,20 @@ public class Teatre {
 		//prueba método para ver los asientos ocupados X=ocupado O=disponible
 		teatreUlldecona.voreSeientsOcupats();
 	}
+
+	/**
+	 * @return the teatre
+	 */
+	public Teatre getTeatre() {
+		return teatre;
+	}
+
+	/**
+	 * @param teatre the teatre to set
+	 */
+	public void setTeatre(Teatre teatre) {
+		GestioTeatreUlldecona.teatre = teatre;
+	}
+
+
 }

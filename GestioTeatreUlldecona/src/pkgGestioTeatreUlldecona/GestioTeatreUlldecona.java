@@ -38,8 +38,7 @@ public class GestioTeatreUlldecona {
 			char opcio;
 			//llamamos al metodo para imprimir el menu
 			opcio=menu(opcions);
-			Obra obra=null;
-			Teatre teatreUlldecona=null;
+			Obra obra = null;
 			switch (opcio) {
 
 			case 'o':
@@ -58,10 +57,9 @@ public class GestioTeatreUlldecona {
 				System.out.println("-------------------------");
 				System.out.println("[s](Crear) sala de teatre");
 				System.out.println("-------------------------");
-				teatreUlldecona=crearSalaTeatre(obra);
+				Teatre teatreUlldecona=crearSalaTeatre(obra);
 				
 				teatreUlldecona.voreSeientsOcupats();
-				
 				break;
 			case 'p':
 				System.out.println("[p](Crear) persona del público");
@@ -72,8 +70,7 @@ public class GestioTeatreUlldecona {
 
 			case 'v':
 				System.out.println("[v]Vore pati de butaques");
-				
-				teatreUlldecona.voreSeientsOcupats();
+//				teatreUlldecona.voreSeientsOcupats();
 
 				break;
 			
