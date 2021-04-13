@@ -1,6 +1,5 @@
 package pkgTeatregrama;
-
-
+//import java.util.Scanner;
 /**
  * Cas_5 M03 Clase Obra: clase del proyecto GestioTeatreUlldecona. Conforma
  * el paquete pkgTeatregrama. Contiene atributos y métodos para la gestión de
@@ -8,7 +7,7 @@ package pkgTeatregrama;
  * inicial GestioTeatreUlldecona.java
  * 
  * @author Daniela Gallardo Reyes
- * @version 2.0 (Pruebas de funcionamiento)
+ * @version 2.1 (entrega final PERO siempre pueden haber mejoras)
  * @since 15-03-2021
  */
 
@@ -115,17 +114,6 @@ public class Obra {
 			this.autor=obra.autor;
 			this.EsParaMajorsdEdat=obra.EsParaMajorsdEdat;
 		}
-	/**
-	 * main sólo para pruebas debe ser borrado en su versión final
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//prueba crear objeto obra
-		Obra obraNueva=new Obra("Los Pensamientos",120,"Tamara Acosta",true);
-		System.out.println(obraNueva.toString());
-
-	}//fin main
 
 	public Obra getObra(Obra Obra) {
 		return Obra;

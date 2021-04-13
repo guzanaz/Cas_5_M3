@@ -1,6 +1,6 @@
 package pkgTeatregrama;
-//import pkgTeatregrama.Client;
 
+//import java.util.Scanner;
 /**
  * Cas_5 M03 Clase Seient: clase del proyecto GestioTeatreUlldecona. Conforma
  * el paquete pkgTeatregrama. Contiene atributos y métodos para la gestión de
@@ -8,7 +8,7 @@ package pkgTeatregrama;
  * inicial GestioTeatreUlldecona.java
  * 
  * @author Daniela Gallardo Reyes
- * @version 2.0 (pruebas de funcionamiento)
+ * @version 2.1 (entrega final PERO siempre pueden haber mejoras)
  * @since 15-03-2021
  */
 
@@ -83,7 +83,7 @@ public class Seient {
 		}
 		
 		
-		return "Seient fila:" + fila + ", num:" + num + ", client:" + tempPublico;
+		return "Seient fila:" + fila + ", num:" + num + tempPublico;
 	}
 
 
@@ -97,8 +97,7 @@ public class Seient {
 	
 		return client!=null;
 	}
-	
-	
+		
 	// ------------------------------------------------------------------------//
 	// --------------------------- Constructor/es -----------------------------//
 	// ------------------------------------------------------------------------//
@@ -109,25 +108,6 @@ public class Seient {
 		this.client=client;
 	}
 
-	/**
-	 * main sólo para pruebas debe ser borrado en su versión final
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-		Client client1=new Client("Daniela",30,300);
-		// creamos instancias de prueba
-		Seient seient1=new Seient(1,1,client1);
-		
-		Seient seient2=new Seient(2,12,null);
-		
 
-		
-		//imprimimos para comprobar met. get
-//		System.out.println("seient1 fila= "+ seient1.getFila());
-//		System.out.println("seient1 nro= "+ seient1.getNum());
-		System.out.println(seient2.toString());
-		System.out.println(seient1.toString());		
-	}
 
 }
