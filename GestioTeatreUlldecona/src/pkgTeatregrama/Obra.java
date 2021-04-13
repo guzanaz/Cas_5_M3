@@ -85,10 +85,10 @@ public class Obra {
 	
 
 	public String toString() {
-		return "Obra titol=" + titol + 
-				"\ndurada=" + durada+"min." + 
-				"\nautor=" + autor + 
-				"\nEs para majors d'Edat=" + EsParaMajorsdEdat;
+		return "Obra titol:" + titol + 
+				"\ndurada:" + durada+" min." + 
+				"\nautor:" + autor + 
+				"\nEs para majors d'Edat=:" + EsParaMajorsdEdat;
 	}
 	
 	// ------------------------------------------------------------------------//

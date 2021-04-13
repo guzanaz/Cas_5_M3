@@ -111,7 +111,7 @@ public class Client {
 	 */
 
 	public String toString() {
-		return "Client nom: " + nom + " Edat: " + edat + " Diners: " + diners + "€";
+		return " Client nom: " + nom + " Edat: " + edat + " Diners: " + diners + "€";
 	}
 
 	// ------------------------------------------------------------------------//
