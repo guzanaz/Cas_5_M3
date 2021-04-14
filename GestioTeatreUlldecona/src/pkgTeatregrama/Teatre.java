@@ -219,6 +219,47 @@ public class Teatre {
 				"\nFilas=" + fila + 
 				"\nNum Seients=" + num;
 	}
+	
+	
+	
+	// método main
+		public static void main(String[] args){//Prueba crear objeto seient1 		
+//		Seient seient1=new Seient(2,2,client1);
+//		System.out.println(seient1.toString());
 
+		// prueba ejemplo objeto obra
+		
+		//Prueba crear objeto obraNueva
+		Obra obraNueva = new Obra("Los Pensamientos", 120, "Tamara Acosta", true);
+		System.out.println(obraNueva.toString());
+
+//		// ejemplo de objeto de la clase Teatre
+//		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 5,5);
+		
+		//Prueba crear objeto teatreUlldecona
+		Teatre teatreUlldecona = new Teatre(obraNueva, 20, 7,5);
+		System.out.println(teatreUlldecona.toString());
+		//Prueba método asientos disponibles SIN asientos asignado
+		teatreUlldecona.imprimirTodosAsientos();
+
+
+		//Probar método asientos disponibles sin asientos asignados
+		
+		//Prueba método asientos disponibles sin asientos asignados
+//		teatreUlldecona.imprimirTodosAsientos();
+		//Reservar asiento
+
+		//Prueba Reservar asiento
+//		teatreUlldecona.reservaSeient(seient1);
+//		//Probar método asientos disponibles CON asiento asignado
+//
+//		//Prueba método asientos disponibles CON asiento asignado
+//		teatreUlldecona.imprimirTodosAsientos();
+//
+//		
+//		//prueba método para ver los asientos ocupados X=ocupado O=disponible
+//		teatreUlldecona.voreSeientsOcupats();
+	}
+	
 
 }

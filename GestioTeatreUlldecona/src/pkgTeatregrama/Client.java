@@ -85,7 +85,7 @@ public class Client {
 	 * @return double diners actualizado (cambio después de pagar entrada).
 	 */
 	public double pagarEntrada(Client client, Teatre teatre) {
-		if (client.teDiners(teatre) == true && (client.getDiners() > teatre.getPreu())) {
+		if (client.teDiners(teatre) == true && (client.getDiners() > teatre.getPreu())){
 			diners = diners - teatre.getPreu();
 		} else {
 			System.out.println(client.getNom() + " no té prou diners per pagar l'entrada");
@@ -95,7 +95,6 @@ public class Client {
 
 	/**
 	 * Método majorEdat. Mira si el cliente es mayor de edad.
-	 * 
 	 * @param nada.
 	 * @return true or false.
 	 */
@@ -104,8 +103,8 @@ public class Client {
 	}
 	
 	/**
-	 * Método toString. Devuelve los atributos del cliente en forma de frase.
-	 * 
+	 * Método toString. 
+	 * Convierte los atributos del cliente a cadena de caracteres.
 	 * @param atributos Client.
 	 * @return Cadena de caracteres con los datos del cliente.
 	 */

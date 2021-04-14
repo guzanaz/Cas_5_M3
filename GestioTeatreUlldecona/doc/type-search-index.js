@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"pkgTeatregrama","l":"Client"},{"p":"pkgGestioTeatreUlldecona","l":"GestioTeatreUlldecona"},{"p":"pkgTeatregrama","l":"Obra"},{"p":"pkgTeatregrama","l":"Seient"},{"p":"pkgTeatregrama","l":"Teatre"}];updateSearchResults();
